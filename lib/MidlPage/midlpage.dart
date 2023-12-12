@@ -1,3 +1,4 @@
+import 'package:app1_melchior_delescluse/MidlPage/widgets/header.dart';
 import 'package:flutter/material.dart';
 
 class Midl extends StatefulWidget {
@@ -16,32 +17,11 @@ class _MidlState extends State<Midl> {
         ),
         child: SafeArea(
           child: Scaffold(
-              appBar: AppBar(
-                backgroundColor: Colors.transparent,
-                elevation: 0,
-                title: const Text("Midl"),
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.tune_outlined),
-                    tooltip: 'Settings',
-                    onPressed: () {
-                      // handle the press
-                    },
-                  ),
-                  IconButton(
-                    icon: const Icon(Icons.settings),
-                    tooltip: 'Another Settings',
-                    onPressed: () {
-                      // handle the press
-                    },
-                  ),
-                ],
-                centerTitle: true,
-              ),
               body: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
+                    Header(),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(100.0),
                       child: const Image(
@@ -105,7 +85,8 @@ class _MidlState extends State<Midl> {
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(20.0)),
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
                                       backgroundColor: const Color(0xffa3e8d5),
                                     ),
                                     onPressed: () {},
@@ -114,19 +95,17 @@ class _MidlState extends State<Midl> {
                                         Text(
                                           'BOOST',
                                           style: TextStyle(
-                                              color: Color(0xFF000000)
-                                          ),
+                                              color: Color(0xFF000000)),
                                         ),
                                         Icon(
                                           Icons.person_2_outlined,
                                           color: Colors.white,
                                         ),
                                         Text(
-                                            'Mettez votre annonce en avant pendant 24h',
+                                          'Mettez votre annonce en avant pendant 24h',
                                           style: TextStyle(
                                               color: Color(0xFF000000),
-                                              fontSize: 10
-                                          ),
+                                              fontSize: 10),
                                         ),
                                       ],
                                     )),
@@ -134,26 +113,27 @@ class _MidlState extends State<Midl> {
                               const SizedBox(
                                 width: 10,
                               ),
-
                               SizedBox(
                                 width: 120,
                                 height: 120,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(20.0)),
+                                          borderRadius:
+                                              BorderRadius.circular(20.0)),
                                       backgroundColor: const Color(0xffffffff),
                                     ),
                                     onPressed: () {},
                                     child: const Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Text(
                                           'MESSAGE INSTANTANÉ',
                                           style: TextStyle(
-                                              color: Color(0xFF000000)
-                                          ),
+                                              color: Color(0xFF000000)),
                                         ),
                                         Icon(
                                           Icons.person_2_outlined,
@@ -163,8 +143,7 @@ class _MidlState extends State<Midl> {
                                           'N\'attendez pas de matcher pour envoyer un message',
                                           style: TextStyle(
                                               color: Color(0xFF000000),
-                                              fontSize: 10
-                                          ),
+                                              fontSize: 10),
                                         ),
                                       ],
                                     )),
@@ -173,9 +152,9 @@ class _MidlState extends State<Midl> {
                           ),
                           DecoratedBox(
                             decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(20)),
-                              color:Color(0xFF000000)
-                            ),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(20)),
+                                color: Color(0xFF000000)),
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
@@ -203,16 +182,17 @@ class _MidlState extends State<Midl> {
                                     child: ElevatedButton(
                                       style: ElevatedButton.styleFrom(
                                         shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(20.0)),
-                                        backgroundColor: const Color(0xffffffff),
+                                            borderRadius:
+                                                BorderRadius.circular(20.0)),
+                                        backgroundColor:
+                                            const Color(0xffffffff),
                                       ),
-                                      onPressed: (){},
+                                      onPressed: () {},
                                       child: const Text(
                                         'Bientôt Disponible !',
                                         style: TextStyle(
-                                          color: Color(0xFF000000),
-                                        fontSize: 10
-                                      ),
+                                            color: Color(0xFF000000),
+                                            fontSize: 10),
                                       ),
                                     ),
                                   )
@@ -249,7 +229,7 @@ class _MidlState extends State<Midl> {
                     IconButton(
                         onPressed: () {},
                         icon: const Icon(
-                          Icons.chat_bubble_rounded,
+                          Icons.chat_bubble,
                           size: 40,
                           color: Color(0xFF646464),
                         )),
