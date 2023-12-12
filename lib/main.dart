@@ -1,5 +1,7 @@
 import 'package:app1_melchior_delescluse/MidlPage/midlpage.dart';
 import 'package:flutter/material.dart';
+
+import 'mysharedpref.dart';
 // import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Midl'),
+      home: const MyHomePage(title: 'Accueil'),
     );
   }
 }
@@ -36,6 +38,55 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Midl();
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        elevation: 0,
+        title: const Text(
+          'Accueil',
+          style: TextStyle(color: Colors.white),
+        ),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Hello',
+              style: TextStyle(fontSize: 40),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SharedPreferencesExample(),
+                        ),
+                      );
+                    },
+                    child: const Text('Mes préférences')),
+                const SizedBox(width: 10,),
+                ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Midl(),
+                        ),
+                      );
+                    },
+                    child: const Text('Midl')),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
   }
 }

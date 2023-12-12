@@ -63,7 +63,11 @@ class _MidlState extends State<Midl> {
                         ),
                         label: const Text(
                           'Mes recherches',
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: Colors.white,
+                            fontFamily: 'ArialRounded'
+                          ),
+
                         ),
                       ),
                       const Spacer(),
@@ -84,6 +88,7 @@ class _MidlState extends State<Midl> {
                                 height: 120,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.all(0),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(20.0)),
@@ -118,6 +123,7 @@ class _MidlState extends State<Midl> {
                                 height: 120,
                                 child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
+                                      padding: const EdgeInsets.all(0),
                                       shape: RoundedRectangleBorder(
                                           borderRadius:
                                               BorderRadius.circular(20.0)),
