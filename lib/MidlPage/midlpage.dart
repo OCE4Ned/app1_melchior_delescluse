@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:app1_melchior_delescluse/MidlPage/widgets/header.dart';
 import 'package:flutter/material.dart';
 
@@ -22,13 +24,74 @@ class _MidlState extends State<Midl> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
                     Header(),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(100.0),
-                      child: const Image(
-                          height: 200,
-                          width: 200,
-                          image: NetworkImage(
-                              "https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg")),
+                    Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(100.0),
+                            child: const Image(
+                                height: 200,
+                                width: 200,
+                                image: NetworkImage(
+                                    "https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg")),
+                          ),
+                          SizedBox(
+                              width: 200,
+                              height: 200,
+                              child: Transform.rotate(
+                                angle: pi,
+                                child: const CircularProgressIndicator(
+                                  backgroundColor: Color(0xffe3e3e4),
+                                  strokeCap: StrokeCap.round,
+                                  value: 0.33,
+                                ),
+                              )),
+                          Positioned(
+                            bottom: -10,
+                            left: 30,
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                  boxShadow: const [
+                                    BoxShadow(
+                                        color: Colors.black,
+                                        offset: Offset(0, 5))
+                                  ],
+                                  borderRadius: BorderRadius.circular(50),
+                                  gradient: const LinearGradient(colors: [
+                                    Color(0xFF73cbab),
+                                    Color(0xFF3573ac)
+                                  ])),
+                              child: const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                    style: TextStyle(color: Colors.white),
+                                    'COMPLÉTÉ A 100%'),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                              child: Stack(
+                            children: [
+                              ElevatedButton(
+                                  onPressed: () {},
+                                  child: const Icon(Icons.edit)),
+                              const Positioned(
+                                  child: DecoratedBox(
+                                      decoration: BoxDecoration(
+                                          color: Color(0xFF73cbab)
+                                      ),
+                                    child: SizedBox(
+                                      width: 5,
+                                      height: 5,
+                                    ),
+                                  )
+                              )
+                            ],
+                          ))
+                        ],
+                      ),
                     ),
                     const Text('Melchior'),
                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -64,10 +127,7 @@ class _MidlState extends State<Midl> {
                         label: const Text(
                           'Mes recherches',
                           style: TextStyle(
-                              color: Colors.white,
-                            fontFamily: 'ArialRounded'
-                          ),
-
+                              color: Colors.white, fontFamily: 'ArialRounded'),
                         ),
                       ),
                       const Spacer(),
@@ -121,38 +181,54 @@ class _MidlState extends State<Midl> {
                               SizedBox(
                                 width: 120,
                                 height: 120,
-                                child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      padding: const EdgeInsets.all(0),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.0)),
-                                      backgroundColor: const Color(0xffffffff),
-                                    ),
-                                    onPressed: () {},
-                                    child: const Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'MESSAGE INSTANTANÉ',
-                                          style: TextStyle(
-                                              color: Color(0xFF000000)),
+                                child: Stack(
+                                  children: [
+                                    ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          padding: const EdgeInsets.all(0),
+                                          shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(20.0)),
+                                          backgroundColor:
+                                              const Color(0xffffffff),
                                         ),
-                                        Icon(
-                                          Icons.person_2_outlined,
-                                          color: Colors.white,
-                                        ),
-                                        Text(
-                                          'N\'attendez pas de matcher pour envoyer un message',
-                                          style: TextStyle(
-                                              color: Color(0xFF000000),
-                                              fontSize: 10),
-                                        ),
-                                      ],
-                                    )),
+                                        onPressed: () {},
+                                        child: const Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              'MESSAGE INSTANTANÉ',
+                                              style: TextStyle(
+                                                  color: Color(0xFF000000)),
+                                            ),
+                                            Icon(
+                                              Icons.person_2_outlined,
+                                              color: Colors.white,
+                                            ),
+                                            Text(
+                                              'N\'attendez pas de matcher pour envoyer un message',
+                                              style: TextStyle(
+                                                  color: Color(0xFF000000),
+                                                  fontSize: 10),
+                                            ),
+                                          ],
+                                        )),
+                                    Positioned(
+                                      top: 0,
+                                      right: 0,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            border: Border.all(
+                                                color: Colors.black)),
+                                        child: const Icon(Icons.add),
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ],
                           ),
@@ -213,10 +289,10 @@ class _MidlState extends State<Midl> {
                 ),
               ),
               bottomNavigationBar: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.all(8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
                         onPressed: () {},
@@ -241,21 +317,19 @@ class _MidlState extends State<Midl> {
                         )),
                     InkWell(
                       onTap: () {},
+                      splashColor: Colors.brown.withOpacity(0.5),
                       customBorder: const CircleBorder(),
                       child: const Padding(
-                        padding: EdgeInsets.all(8.0),
+                        padding: EdgeInsets.all(2.0),
                         child: CircleAvatar(
-                          radius: 20,
-                          backgroundImage:
-                              NetworkImage('https://picsum.photos/200'),
-                        ),
+                            radius: 20,
+                            backgroundImage: NetworkImage(
+                                "https://flutter.github.io/assets-for-api-docs/assets/widgets/owl.jpg")),
                       ),
-                    ),
+                    )
                   ],
                 ),
-              )
-              // This trailing comma makes auto-formatting nicer for build methods.
-              ),
+              )),
         ));
   }
 }

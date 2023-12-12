@@ -18,9 +18,27 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+          textTheme: const TextTheme(
+              bodyLarge: TextStyle(
+                fontFamily: 'ArialRounded',
+              ),
+              bodyMedium: TextStyle(
+                fontFamily: 'ArialRounded',
+              ),
+              bodySmall: TextStyle(
+                fontFamily: 'ArialRounded',
+              ),
+              headlineLarge: TextStyle(
+                fontFamily: 'ArialRounded',
+              ),
+              headlineMedium: TextStyle(
+                fontFamily: 'ArialRounded',
+              ),
+              headlineSmall: TextStyle(
+                fontFamily: 'ArialRounded',
+              ))),
       home: const MyHomePage(title: 'Accueil'),
     );
   }
@@ -66,12 +84,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const SharedPreferencesExample(),
+                          builder: (context) =>
+                              const SharedPreferencesExample(),
                         ),
                       );
                     },
                     child: const Text('Mes préférences')),
-                const SizedBox(width: 10,),
+                const SizedBox(
+                  width: 10,
+                ),
                 ElevatedButton(
                     onPressed: () {
                       Navigator.push(
